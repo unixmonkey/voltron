@@ -1,0 +1,21 @@
+<:Title>
+  Notes
+
+<:Body>
+  <h1>Notes</h1>
+
+  <form e-submit="add_note">
+    <div class="form-group">
+      <label>New Note</label>
+      <input class="form-control" type="text" value="{{ page._new_note }}">
+    </div>
+  </form>
+
+  <table class="note-table">
+    {{ _notes.each do |note| }}
+      <tr e-click="alert_note(note)">
+        <td>{{ note._name }}</td>
+        <td><button e-click="remove_note(note)">x</button>
+      </tr>
+    {{ end }}
+  </table>

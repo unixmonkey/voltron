@@ -1,11 +1,22 @@
 # By default Volt generates this controller for your Main component
 class MainController < Volt::ModelController
+  model :store
+
   def index
     # Add code for when the index view is loaded
   end
 
-  def about
-    # Add code for when the about view is loaded
+  def add_note
+    _notes << { name: page._new_note }
+    page._new_note = ''
+  end
+
+  def remove_note(note)
+    _notes.delete(note)
+  end
+
+  def alert_note(note)
+    alert(note.to_s)
   end
 
   private
