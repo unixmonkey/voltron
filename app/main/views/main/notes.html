@@ -13,9 +13,11 @@
 
   <table class="note-table">
     {{ _notes.each do |note| }}
-      <tr e-click="alert_note(note)">
+      <tr e-click="toggle_note(note)"
+        class="{{ if note._selected }}selected{{ end }}">
         <td>{{ note._name }}</td>
-        <td><button e-click="remove_note(note)">x</button>
+        <td><button e-click="remove_note(note)">x</button></td>
+        <td><button e-click="alert_note(note)">i</button></td>
       </tr>
     {{ end }}
   </table>

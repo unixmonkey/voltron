@@ -7,7 +7,7 @@ class MainController < Volt::ModelController
   end
 
   def add_note
-    _notes << { name: page._new_note }
+    _notes << { name: page._new_note, selected: false }
     page._new_note = ''
   end
 
@@ -15,8 +15,12 @@ class MainController < Volt::ModelController
     _notes.delete(note)
   end
 
+  def toggle_note(note)
+    note._selected = !note._selected
+  end
+
   def alert_note(note)
-    alert(note.to_s)
+    alert(note)
   end
 
   private
